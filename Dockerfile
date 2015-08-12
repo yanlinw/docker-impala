@@ -52,6 +52,13 @@ ADD files/start-bash.sh /
 ADD files/start-daemon.sh /
 ADD files/hdp /usr/bin/hdp
 
+
+RUN apt-get install sqoop2-server
+RUN wget http://download.microsoft.com/download/0/2/A/02AAE597-3865-456C-AE7F-613F99F850A8/sqljdbc_4.0.2206.100_enu.tar.gz
+RUN tar xz  sqljdbc_4.0.2206.100_enu.tar.gz
+cp sqljdbc_4.0/enu/sqljdbc4.jar /var/lib/sqoop2/
+
+
 # HDFS PORTS :
 # 9000  Name Node IPC
 # 50010 Data Node Transfer
@@ -67,7 +74,9 @@ ADD files/hdp /usr/bin/hdp
 # 25010 Impala State Store HTTP
 # 25020 Impala Catalog HTTP
 
-EXPOSE 9000 50010 50020 50070 50075 21000 21050 25000 25010 25020
+
+# SQOOP2
+EXPOSE 9000 50010 50020 50070 50075 21000 21050 25000 25010 25020 12000 12001
 
 CMD /start-daemon.sh
 
