@@ -56,7 +56,7 @@ ADD files/hdp /usr/bin/hdp
 RUN apt-get install sqoop2-server -y
 RUN wget http://download.microsoft.com/download/0/2/A/02AAE597-3865-456C-AE7F-613F99F850A8/sqljdbc_4.0.2206.100_enu.tar.gz
 RUN tar -zxvf  sqljdbc_4.0.2206.100_enu.tar.gz
-cp sqljdbc_4.0/enu/sqljdbc4.jar /var/lib/sqoop2/
+RUN cp sqljdbc_4.0/enu/sqljdbc4.jar /var/lib/sqoop2/
 
 
 # HDFS PORTS :
